@@ -1,99 +1,69 @@
-# 05 Third-Party APIs: Work Day Scheduler
+# Workday Scheduler
 
-## Your Task
+This is a simple scheduler application that allows a user to save events for each hour of the day. This app will run in the browser and feature dynamically updated HTML and CSS powered by JavaScript and jQuery.
 
-Create a simple calendar application that allows a user to save events for each hour of the day by modifying starter code. This app will run in the browser and feature dynamically updated HTML and CSS powered by jQuery.
+## Description
 
-You'll need to use the [Day.js](https://day.js.org/en/) library to work with date and time. Be sure to read the documentation carefully and concentrate on using Day.js in the browser.
+![Workday Scheduler](./assets/image/screen-shot.png)
 
-## User Story
+ It uses the day.js library to work with date and time. The application displays standard business hours (9 a.m. to 5 p.m.). Each time block represents one hour and contains the following:
 
-```md
-AS AN employee with a busy schedule
-I WANT to add important events to a daily planner
-SO THAT I can manage my time effectively
-```
+* The time
+* A field to hold user input
+* A save button
 
-## Acceptance Criteria
+ Save button will store the time and user input in local storage. When the user refreshes the page, the saved events will still be there.
 
-```md
-GIVEN I am using a daily planner to create a schedule
-WHEN I open the planner
-THEN the current day is displayed at the top of the calendar
-WHEN I scroll down
-THEN I am presented with timeblocks for standard business hours
-WHEN I view the timeblocks for that day
-THEN each timeblock is color coded to indicate whether it is in the past, present, or future
-WHEN I click into a timeblock
-THEN I can enter an event
-WHEN I click the save button for that timeblock
-THEN the text for that event is saved in local storage
-WHEN I refresh the page
-THEN the saved events persist
-```
+ Modal will pop up only on the first load of the application. You can close the modal by clicking the close button or by clicking outside of the modal. You can also close it by pressing down the ESC key.
 
-The following animation demonstrates the application functionality:
+## Getting Started
 
-<!-- @TODO: create ticket to review/update image) -->
-![A user clicks on slots on the color-coded calendar and edits the events.](./Assets/05-third-party-apis-homework-demo.gif)
+You can simply click on the link to the deployed application: https://jyoungjoon.github.io/workday-scheduler/
 
-## Grading Requirements
+### Dependencies
 
-> **Note**: If a Challenge assignment submission is marked as “0”, it is considered incomplete and will not count towards your graduation requirements. Examples of incomplete submissions include the following:
->
-> * A repository that has no code
->
-> * A repository that includes a unique name but nothing else
->
-> * A repository that includes only a README file but nothing else
->
-> * A repository that only includes starter code
+It is recommended to use Google Chrome to run this application.
 
-This Challenge is graded based on the following criteria:
+### Installing
 
-### Technical Acceptance Criteria: 40%
+No installation required. However, you can clone the repository to your local machine and open index.html in your browser.
 
-* Satisfies all of the above acceptance criteria plus the following:
+### Executing program
 
-  * Uses a date utility library to work with date and time
+* Simply click on the link to the deployed application: https://jyoungjoon.github.io/workday-scheduler/
 
-### Deployment: 32%
+## Help
 
-* Application deployed at live URL
+If you have any questions, please contact me at [@lif3scriptified](https://twitter.com/lif3scriptified)
 
-* Application loads with no errors
+## Authors
 
-* Application GitHub URL submitted
+Young Jang [@jyoungjoon](https://github.com/jyoungjoon)
 
-* GitHub repo contains application code
+Starter code provided by UC Berkeley Extension Coding Bootcamp.
 
-### Application Quality: 15%
+## Version History
 
-* Application user experience is intuitive and easy to navigate
+* 0.3
+    * Added README and LICENSE
 
-* Application user interface style is clean and polished
+* 0.2
+    * Added modal and script
 
-* Application resembles the mock-up functionality provided in the Challenge instructions
+* 0.1
+    * Initial Release
 
-### Repository Quality: 13%
+## License
 
-* Repository has a unique name
+This project is licensed under the [MIT] License - see the LICENSE.md file for details
 
-* Repository follows best practices for file structure and naming conventions
+## Acknowledgments
 
-* Repository follows best practices for class/id naming conventions, indentation, quality comments, etc.
+Background Image by [Freepik](https://www.freepik.com)
 
-* Repository contains multiple descriptive commit messages
-
-* Repository contains quality README file with description, screenshot, and link to deployed application
-
-## Review
-
-You are required to submit the following for review:
-
-* The URL of the deployed application
-
-* The URL of the GitHub repository, with a unique name and a README describing the project
-
-- - -
-© 2022 Trilogy Education Services, LLC, a 2U, Inc. brand. Confidential and Proprietary. All Rights Reserved.
+Inspiration, code snippets, etc.
+* [awesome-readme](https://github.com/matiassingers/awesome-readme)
+* [PurpleBooth](https://gist.github.com/PurpleBooth/109311bb0361f32d87a2)
+* [dbader](https://github.com/dbader/readme-template)
+* [zenorocha](https://gist.github.com/zenorocha/4526327)
+* [fvcproductions](https://gist.github.com/fvcproductions/1bfc2d4aecb01a834b46)
