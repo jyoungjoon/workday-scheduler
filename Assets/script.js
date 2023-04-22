@@ -1,23 +1,76 @@
-// Wrap all code that interacts with the DOM in a call to jQuery to ensure that
-// the code isn't run until the browser has finished rendering all the elements
-// in the html.
-$(function () {
-  // TODO: Add a listener for click events on the save button. This code should
-  // use the id in the containing time-block as a key to save the user input in
-  // local storage. HINT: What does `this` reference in the click listener
-  // function? How can DOM traversal be used to get the "hour-x" id of the
-  // time-block containing the button that was clicked? How might the id be
-  // useful when saving the description in local storage?
-  //
-  // TODO: Add code to apply the past, present, or future class to each time
-  // block by comparing the id to the current hour. HINTS: How can the id
-  // attribute of each time-block be used to conditionally add or remove the
-  // past, present, and future classes? How can Day.js be used to get the
-  // current hour in 24-hour time?
-  //
-  // TODO: Add code to get any user input that was saved in localStorage and set
-  // the values of the corresponding textarea elements. HINT: How can the id
-  // attribute of each time-block be used to do this?
-  //
-  // TODO: Add code to display the current date in the header of the page.
+const currentTime = document.querySelector(`#currentTime`);
+const modal = document.querySelector(`.modalWindow`);
+const overlay = document.querySelector(`.overlay`);
+const btnCloseModal = document.querySelector(`.closeBtn`);
+
+// Use dayjs to grab current hour:
+let hourNow = dayjs().hour();
+
+// Display current date and time; it is dynamically updated every second:
+setInterval(function () {
+  let timeNow = dayjs();
+  currentTime.innerHTML = timeNow.format(`dddd, MMMM D, YYYY, hh:mm:ss A`);
+});
+
+// Display modal if user has not seen it before:
+if (localStorage.getItem(`no_display`) !== `true`) {
+  modal.classList.remove(`hidden`);
+  overlay.classList.remove(`hidden`);
+}
+
+// Load data from local storage and set time block colors when page is loaded:
+loadStorage();
+setHourColors();
+
+// Save data to local storage when save button is clicked:
+$(`.saveBtn`).on(`click`, saveStorage);
+
+// Set color of time blocks based on hourNow variable:
+function setHourColors() {
+  for (let i = 9; i <= 17; i++) {
+    let time = $(`#hour-` + i);
+    if (hourNow > i) {
+      time.addClass(`past`);
+    } else if (hourNow === i) {
+      time.addClass(`present`);
+    } else {
+      time.addClass(`future`);
+    }
+  }
+}
+
+// Local storage functions for loading data:
+function loadStorage() {
+  localStorage.setItem(`no_display`, `true`)
+  for (let i = 9; i <= 17; i++) {
+    let hour = $(`#hour-` + i);
+    let text = localStorage.getItem(hour.attr(`id`));
+    hour.children(`.description`).val(text);
+  }
+}
+
+// Local storage functions for saving data:
+function saveStorage() {
+  let hour = $(this).parent().attr(`id`);
+  let text = $(this).siblings(`.description`).val();
+  localStorage.setItem(hour, text);
+}
+
+// Modal functions:
+const closeModal = function () {
+  modal.classList.add(`hidden`);
+  overlay.classList.add(`hidden`);
+  localStorage.setItem(`no_display`, `true`);
+};
+
+// Open modal when user clicks on the close button or the overlay:
+btnCloseModal.addEventListener(`click`, closeModal);
+overlay.addEventListener(`click`, closeModal);
+
+// Close modal when user presses the escape key:
+document.addEventListener(`keydown`, function (event) {
+  if (event.key === `Escape` && !modal.classList.contains(`hidden`)) {
+    closeModal();
+  }
+  localStorage.setItem(`no_display`, `true`);
 });
