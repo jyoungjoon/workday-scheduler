@@ -4,7 +4,7 @@ This is a simple scheduler application that allows a user to save events for eac
 
 ## Description
 
-![Workday Scheduler](./Assets/image/screen-shot.png)
+![Workday Scheduler](./newAssets/image/screen-shot.png)
 
  It uses the day.js library to work with date and time. The application displays standard business hours (9 a.m. to 5 p.m.). Each time block represents one hour and contains the following:
 
