@@ -5,7 +5,7 @@
 
 /* Styling for body */
 body {
-  background-image: url("/newAssets/image/paper-texture.jpg");
+  background-image: url("./image/paper-texture.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   font-size: 16px;
